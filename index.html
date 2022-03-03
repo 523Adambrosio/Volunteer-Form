@@ -68,13 +68,18 @@
 		var fromYear = document.getElementById('from-year');
 		var toYear = document.getElementById('to-year');
 		var option;
+		var toYearVal;
 		fromYear.onchange = function() {
-			toYear.innerHTML = ''; 
+			toYearVal = toYear.value;
+			toYear.innerHTML = '';
 			for(var i = fromYear.value; i <= 2017; i++){
 				option = document.createElement('option');
 				option.setAttribute('value', i);
 				option.textContent = i;
 				toYear.appendChild(option);
+			}
+			if(toYearVal >= fromYear.value){
+				toYear.value = toYearVal;
 			}
 		}
 	</script>
